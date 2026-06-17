@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "custom-dynamodb-orm"
+version = "0.1.0"
+description = "A lightweight, type-safe DynamoDB ORM for Python using native typing and dataclasses"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Apache License 2.0" }
+authors = [
+    { name = "Ketan Kolte", email = "ketan@example.com" }
+]
+keywords = ["dynamodb", "orm", "aws", "boto3", "dataclasses", "typing"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Database",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "boto3>=1.26.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "mypy>=1.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/KetanKolte/custom-dynamodb-orm"
+"Bug Tracker" = "https://github.com/KetanKolte/custom-dynamodb-orm/issues"
+"Documentation" = "https://github.com/KetanKolte/custom-dynamodb-orm/blob/main/blog.md"
+"Source Code" = "https://github.com/KetanKolte/custom-dynamodb-orm"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages]
+find = { where = ["src"] }
+
+[tool.black]
+line-length = 100
+target-version = ['py312']
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+select = ["E", "F", "W", "I"]
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
